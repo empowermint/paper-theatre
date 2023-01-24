@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+}
+
+.paperTheatre {
+  width: min(80vw, 720px);
+  aspect-ratio: 16 / 9;
+  background-color: pink;
+  overflow: hidden;
+}
