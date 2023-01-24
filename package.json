@@ -1,0 +1,22 @@
+{
+  "name": "paper-theatre",
+  "version": "0.1.0",
+  "description": "A project to make paper theatres from artwork assets",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/empowermint/paper-theatre.git"
+  },
+  "author": "James T. Harding",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/empowermint/paper-theatre/issues"
+  },
+  "homepage": "https://github.com/empowermint/paper-theatre#readme",
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
+}
