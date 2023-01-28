@@ -1,14 +1,17 @@
 const myTheatre = document.getElementById('myTheatre')
 const paperLayers = Array.from(document.getElementsByClassName('paperLayer') as HTMLCollectionOf<HTMLElement>)
+const debug1 = document.getElementById('debug1')
+const debug2 = document.getElementById('debug2')
 
-document.addEventListener("mousemove", moveLayers)
+const client = myTheatre.getBoundingClientRect()
+const centrePointX = client.width / 2
+const centrePointY = client.height / 2
+debug1.innerText = `w: ${client.width} h: ${client.width} cX: ${centrePointX} cY: ${centrePointY}`
 
-function moveLayers(event: MouseEvent) {
-  paperLayers.forEach(layer => {
-    const depth = parseInt(layer.getAttribute("data-depth"));
-    const x = (window.innerWidth - event.clientX * depth) / 100;
-    const y = (window.innerHeight - event.clientY * depth) / 100;
-
-    layer.style.transform = `translateX(${x}%) translateY(${y}%)`;
-  })
-}
+myTheatre.addEventListener("pointermove", (e: PointerEvent) => {
+  const x = (e.offsetX - centrePointX) / centrePointX
+  const y = (e.offsetY - centrePointY) / centrePointY
+  debug2.innerText = `X: ${x} Y: ${y}`
+  myTheatre.style.setProperty('--deltaX', `${x}`)
+  myTheatre.style.setProperty('--deltaY', `${y}`)
+})
