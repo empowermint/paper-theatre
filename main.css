@@ -14,8 +14,8 @@ body {
   background-color: pink;
   overflow: hidden;
   position: relative;
-  --deltaX: 1;
-  --deltaY: 1;
+  --deltaX: 0;
+  --deltaY: 0;
 }
 
 .paperLayer {
@@ -24,14 +24,14 @@ body {
   top: calc(var(--initX, 0) * 1%);
   left: calc(var(--initY, var(--initX, 0)) * 1%);
   transform:
-    translateX(calc(var(--deltaX) * 100% * var(--sensitivityX, 10) / 100))
-    translateY(calc(var(--deltaY) * 100% * var(--sensitivityY, var(--sensitivityX, 10)) / 100));
+    translateX(calc(var(--deltaX) * 100% * var(--sensitivityX, var(--sensitivityY, 10)) / 100))
+    translateY(calc(var(--deltaY) * 100% * var(--sensitivityY, var(--sensitivityX, 10)) / 100))
+    rotate(calc(1turn * var(--deltaX) * var(--rotateX, 0) / 360))
+    rotate(calc(1turn * var(--deltaY) * var(--rotateY, 0) / 360));
   transition: transform .6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .frame {
-  /* border-radius: 50%; */
   border: solid 10px darkcyan;
   aspect-ratio: 16 / 9;
 }
-
